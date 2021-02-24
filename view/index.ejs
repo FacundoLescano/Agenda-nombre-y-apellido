@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Mysql</title>
+</head>
+<body>
+
+  <style media="screen">
+
+   #input-nombre {
+     width: 600px;
+     margin-left: 20%;
+     margin-top: 50px;
+   }
+
+   #input-apellido {
+     margin-top: 10px;
+     width: 600px;
+     margin-left: 20%;
+   }
+
+   #boton {
+     width: 600px;
+     margin-top: 10px;
+     margin-left: 20%;
+   }
+
+   .table {
+     margin-top: 40px;
+     width: 70%;
+     margin-left: 150px;
+   }
+
+   @media (max-width: 800px) {
+
+     #input-nombre {
+       margin-left: 1px;
+       width: 100%;
+     }
+
+     #input-apellido {
+       margin-left: 1px;
+       width: 100%;
+     }
+
+     #boton {
+       margin-left: 1px;
+       width: 100%;
+     }
+
+      .table {
+        margin-left: 10px;
+        width: 100%;
+      }
+
+   }
+
+  </style>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Agenda</a>
+    </div>
+  </nav>
+
+    <form action="/enviado" method="post">
+
+      <div class="input-group flex-nowrap" id="input-nombre">
+        <span class="input-group-text" id="addon-wrapping">Nombre</span>
+        <input type="text" class="form-control" aria-describedby="addon-wrapping" name="nombre">
+      </div>
+
+      <div class="input-group flex-nowrap" id="input-apellido">
+        <span class="input-group-text" id="addon-wrapping">Apellido</span>
+        <input type="text" class="form-control" aria-describedby="addon-wrapping" name="apellido">
+      </div>
+
+       <button class="btn btn-danger" id="boton" type="submit">Enviar</button>
+
+    </form>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i = 0; i < consulta.length; i++) { %>
+          <tr>
+            <td><%= consulta[i].nombre %></td>
+            <td><%= consulta[i].apellido %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+</body>
+</html>
